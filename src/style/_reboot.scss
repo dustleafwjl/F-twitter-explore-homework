@@ -40,7 +40,12 @@ button {
   line-height: inherit;
 }
 
-h1 {
+input {
+  outline: none;
+  border: none;
+}
+
+h1, h3 {
   color: $heading-color;
   margin: 0;
 }

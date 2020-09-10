@@ -3,16 +3,11 @@
 @import "reboot";
 
 
-.flex-justify-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .button-base {
   border-radius: 14px;
   font-size: 14px;
   border: 1px solid $primary-color;
+  cursor: pointer;
 }
 .header-button-base {
   @extend .button-base;
@@ -20,7 +15,7 @@
 }
 
 .header {
-  @extend .flex-justify-between;
+  @include flex(space-between, center);
   font-size: $font-size-base;
   padding: 20px 40px;
   border-bottom: 1px solid $border-color;
@@ -32,11 +27,60 @@
   &-button {
     &-login {
       @extend .header-button-base;
-      @include button-style($body-bg, $primary-color);
+      @include bg-font-color($body-bg, $primary-color);
     }
     &-register {
       @extend .header-button-base;
-      @include button-style($primary-color, $white);
+      @include bg-font-color($primary-color, $white);
+    }
+  }
+}
+
+$align: stretch;
+
+.content {
+  @include flex(center, center);
+  color: $white;
+  &-form {
+    @include flex(space-between, stretch);
+    flex-direction: column;
+    margin-top: 100px;
+    padding: 30px;
+    width: 360px;
+    height: 420px;
+    background-color: $body-bg;
+    border: 1px solid $border-color;
+    border-radius: $border-radius-base;
+    font-size: 14px;
+    text-align: center;
+    color: $color-base;
+    input {
+      background-color: $body-bg;
+      border-bottom: 1px solid $border-color;
+      padding-bottom: 24px;
+      color: $white;
+      &::-webkit-input-placeholder {
+        color: $color-base;
+      }
+    }
+    &-title {
+      text-align: center;
+      padding-bottom: 20px;
+      font-size: 20px;
+    }
+    &-forget {
+      color: $primary-color;
+      text-align: left;
+      cursor: pointer;
+    }
+    &-login {
+      @extend .header-button-base;
+      @include bg-font-color($body-bg, $primary-color);
+    }
+    &-reigster {
+      @extend .header-button-base;
+      @include bg-font-color($primary-color, $body-bg);
+      color: $white;
     }
   }
 }

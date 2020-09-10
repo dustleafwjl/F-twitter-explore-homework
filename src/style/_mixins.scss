@@ -4,7 +4,13 @@
 }
 
 
-@mixin button-style($bg-color, $color) {
+@mixin bg-font-color($bg-color, $color) {
   background-color: $bg-color;
   color: $color;
+}
+
+@mixin flex($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
 }
