@@ -1,3 +1,42 @@
 @import "variables";
 @import "mixins";
 @import "reboot";
+
+
+.flex-justify-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-base {
+  border-radius: 14px;
+  font-size: 14px;
+  border: 1px solid $primary-color;
+}
+.header-button-base {
+  @extend .button-base;
+  padding: 4px 24px;
+}
+
+.header {
+  @extend .flex-justify-between;
+  font-size: $font-size-base;
+  padding: 20px 40px;
+  border-bottom: 1px solid $border-color;
+  &-logo {
+    color: $white;
+    font-size: 36px;
+    font-weight: bolder;
+  }
+  &-button {
+    &-login {
+      @extend .header-button-base;
+      @include button-style($body-bg, $primary-color);
+    }
+    &-register {
+      @extend .header-button-base;
+      @include button-style($primary-color, $white);
+    }
+  }
+}
