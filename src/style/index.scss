@@ -1,7 +1,9 @@
+//TODO feedback: 可以把@import换为@use，可以去了解一下二者的区别
 @import "variables";
 @import "mixins";
 @import "reboot";
-
+//TODO feedback: 对于整个index.scss文件来说，我们希望可以把header相关的样式抽到_header.scss文件
+// 把跟main相关的样式抽到_main.scss文件，然后在index.scss文件里面引用
 
 .button-base {
   border-radius: 14px;
@@ -9,6 +11,8 @@
   border: 1px solid $primary-color;
   cursor: pointer;
 }
+// TODO feedback：header-button-base这个class还被后面Form表单里面的button使用了，
+//  那么既然是这样，那么这个名字就不合适，叫做'button-basse'更合适
 .header-button-base {
   @extend .button-base;
   padding: 4px 24px;
@@ -25,6 +29,8 @@
     font-weight: bolder;
   }
   &-button {
+    //TODO feedback：&-的嵌套层次太深了，已经有点不利于代码的阅读和维护了。
+    // 在项目上我们我们一般不会用到&-的嵌套，因为很难维护
     &-login {
       @extend .header-button-base;
       @include bg-font-color($body-bg, $primary-color);
@@ -35,8 +41,6 @@
     }
   }
 }
-
-
 
 .content {
   @include flex(center, center);
